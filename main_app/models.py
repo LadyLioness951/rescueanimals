@@ -11,15 +11,18 @@ SPECIES = (
 # Create your models here.
 class Immunization(models.Model):
     name = models.CharField(max_length=150)
-    date = models.DateField('Date of Immunization')
-    upToDate = models.BooleanField(default=True)
+    type = models.CharField(
+        max_length=1,
+        choices=SPECIES,
+        default=SPECIES[1][0]
+    )
 
 class Animal(models.Model):
     name = models.CharField(max_length=25)
     type = models.CharField(
         max_length=1,
         choices=SPECIES,
-        default=SPECIES[1][1]
+        default=SPECIES[1][0]
     )
     breed = models.CharField(max_length=50)
     description = models.TextField()
@@ -49,3 +52,9 @@ class Visit(models.Model):
     class Meta:
         ordering = ['-date']
 
+class Photo(models.Model):
+    url = models.CharField(max_length=200)
+    animal = models.ForeignKey(Animal, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f'Photo for animal_id: {self.animal_id} @ {self.url}'

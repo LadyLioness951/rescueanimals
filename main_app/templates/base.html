@@ -7,19 +7,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Animal Rescue</title>
-    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </head>
 <body>
-    <header>
+    <header class="navbar-fixed">
         <nav>
-            <div>
+            <div class="nav-wrapper #ffa000 amber darken-2">
                 <ul>
                     <li><a href="{% url 'home' %}">AnimalRescue</a></li>
                 </ul>
                 <ul>
                     <li><a href="{% url 'about' %}">About</a></li>
+                    <li><a href="{% url 'immunizations_create' %}">Add Immunization</a></li>
                     <li><a href="{% url 'animals_create' %}">Add a Animal</a></li>
                     <li><a href="{% url 'index' %}">View All Rescue Animals</a></li>
                 </ul>
@@ -31,7 +32,7 @@
         {% endblock %}
     </main>
     <footer>
-        <div>All Rights Reserved, &copy; 2021 Rescue Animals &nbsp;</div>
+        <div class="center #ffa000 amber darken-2">All Rights Reserved, &copy; 2021 Rescue Animals &nbsp;</div>
     </footer>
 </body>
 </html>

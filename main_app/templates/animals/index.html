@@ -8,7 +8,7 @@
         <a href="{% url 'detail' animal.id %}">
             <div class="card-content">
                 <span class="card-title">{{ animal.name }}</span>
-                <p>Type: {{ animal.type }}</p>
+                <p>Type: {{ animal.get_type_display }}</p>
                 <p>Breed: {{ animal.breed }}</p>
                 <p>Description: {{ animal.description }}</p>
                 <p>Age: {{ animal.age }}</p>
